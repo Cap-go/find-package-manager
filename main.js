@@ -1,3 +1,4 @@
+const { existsSync } = require('fs');
 exports.findPackageManagerType = (path = '.') => {
     const pnpmPath = `${path}/pnpm-lock.yaml`;
     const yarnPath = `${path}/yarn.lock`;
