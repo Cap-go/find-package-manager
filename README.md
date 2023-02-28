@@ -6,5 +6,5 @@ Find what package manager is used in the provided path.
 ```typescript
 import { findPackageManagerType } from '@capgo/find-package-manager'
 
-console.log(findPackageManagerType())
+console.log(findPackageManagerType()) // npm | yarn | pnpm | unknown
 ```
