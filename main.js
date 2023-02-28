@@ -1,4 +1,4 @@
-export const findPackageManagerType = (path = '.') => {
+exports.findPackageManagerType = (path = '.') => {
     const pnpmPath = `${path}/pnpm-lock.yaml`;
     const yarnPath = `${path}/yarn.lock`;
     const npmPath = `${path}/package-lock.json`;

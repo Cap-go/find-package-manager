@@ -1,7 +1,7 @@
 {
   "name": "@capgo/find-package-manager",
   "public": true,
-  "version": "0.0.5",
+  "version": "0.0.6",
   "license": "MIT",
   "description": "Live update for capacitor apps",
   "main": "main.js",
