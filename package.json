@@ -1,16 +1,17 @@
 {
   "name": "@capgo/find-package-manager",
-  "version": "0.0.1",
+  "public": true,
+  "version": "0.0.2",
   "license": "MIT",
   "description": "Live update for capacitor apps",
   "main": "main.js",
   "module": "main.js",
   "types": "index.d.ts",
   "unpkg": "main.js",
-  "author": "Martin Donadieu",
+  "author": "github.com/riderx",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Cap-go/capacitor-updater.git"
+    "url": "git+https://github.com/Cap-go/find-package-manager.git"
   },
   "bugs": {
     "url": "https://github.com/Cap-go/find-package-manager/issues"
@@ -20,5 +21,5 @@
     "find",
     "manager",
     "pm"
-  ],
+  ]
 }

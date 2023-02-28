@@ -11,5 +11,5 @@ export const findPackageManagerType = (path = '.') => {
     if (existsSync(npmPath)) {
         return 'npm'
     }
-    return 'not-found'
+    return 'unknown'
 }
