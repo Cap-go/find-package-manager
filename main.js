@@ -1,5 +1,6 @@
-const { existsSync } = require('fs');
-exports.findPackageManagerType = (path = '.') => {
+import { existsSync } from 'fs';
+
+export const findPackageManagerType = (path = '.') => {
     const bunPath = `${path}/bun.lockb`;
     const pnpmPath = `${path}/pnpm-lock.yaml`;
     const yarnPath = `${path}/yarn.lock`;
@@ -18,3 +19,4 @@ exports.findPackageManagerType = (path = '.') => {
     }
     return 'unknown'
 }
+console.log('findPackageManagerType', findPackageManagerType())
