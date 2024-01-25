@@ -1,1 +1,1 @@
-export function findPackageManagerType (path?: string): 'yarn' | 'npm' | 'pnpm' | 'unknown';
+export function findPackageManagerType (path?: string): 'yarn' | 'npm' | 'bun' | 'pnpm' | 'unknown';
