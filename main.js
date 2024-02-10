@@ -19,4 +19,4 @@ export const findPackageManagerType = (path = '.') => {
     }
     return 'unknown'
 }
-console.log('findPackageManagerType', findPackageManagerType())
+// console.log('findPackageManagerType', findPackageManagerType())
