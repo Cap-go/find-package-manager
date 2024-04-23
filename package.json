@@ -2,7 +2,7 @@
   "name": "@capgo/find-package-manager",
   "type": "module",
   "public": true,
-  "version": "0.0.10",
+  "version": "0.0.11",
   "license": "MIT",
   "description": "Live update for capacitor apps",
   "main": "main.js",
@@ -19,7 +19,7 @@
   },
   "engines": {
     "npm": ">=8.0.0",
-    "node": ">=20.0.0"
+    "node": ">=18.0.0"
   },
   "keywords": [
     "package manager",
