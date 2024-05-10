@@ -36,4 +36,24 @@ export const findInstallCommand = (packageManagerType = findPackageManagerType()
             return 'install';
     }
 }
+
+export const findPackageManagerRuuner = (path = '.', defaultPackageManagerRunner = 'npx') => {
+    const bunPath = `${path}/bun.lockb`;
+    const pnpmPath = `${path}/pnpm-lock.yaml`;
+    const yarnPath = `${path}/yarn.lock`;
+    const npmPath = `${path}/package-lock.json`;
+    if (existsSync(bunPath)) {
+        return 'bunx'
+    }
+    if (existsSync(pnpmPath)) {
+        return 'pnpm exec'
+    }
+    if (existsSync(yarnPath)) {
+        return 'yarn dlx'
+    }
+    if (existsSync(npmPath)) {
+        return 'npx'
+    }
+    return defaultPackageManagerRunner
+}
 // console.log('findPackageManagerType', findPackageManagerType())
