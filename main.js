@@ -30,6 +30,8 @@ export const findInstallCommand = (packageManagerType = findPackageManagerType()
             return 'add';
         case 'npm':
             return 'install';
+        case 'unknown':
+            return 'unknown';
         default:
             return 'install';
     }
