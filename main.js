@@ -19,4 +19,19 @@ export const findPackageManagerType = (path = '.') => {
     }
     return 'unknown'
 }
+
+export const findInstallCommand = (packageManagerType = findPackageManagerType()) => {
+    switch (packageManagerType) {
+        case 'bun':
+            return 'install';
+        case 'pnpm':
+            return 'install';
+        case 'yarn':
+            return 'add';
+        case 'npm':
+            return 'install';
+        default:
+            return 'install';
+    }
+}
 // console.log('findPackageManagerType', findPackageManagerType())
