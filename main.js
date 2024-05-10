@@ -20,24 +20,24 @@ export const findPackageManagerType = (path = '.', defaultPackageManager = 'unkn
     return defaultPm
 }
 
-export const findInstallCommand = (packageManagerType = findPackageManagerType()) => {
+export const findInstallCommand = (packageManagerType = findPackageManagerType(), prefix = false) => {
     switch (packageManagerType) {
         case 'bun':
-            return 'install';
+            return prefix ? 'bun install' : 'install';
         case 'pnpm':
-            return 'install';
+            return prefix ? 'pnpm install' : 'install';
         case 'yarn':
-            return 'add';
+            return prefix ? 'yarn install' : 'install';
         case 'npm':
-            return 'install';
+            return prefix ? 'npm install' : 'install';
         case 'unknown':
-            return 'unknown';
+            return prefix ? 'unknown unknown' : 'unknown';
         default:
-            return 'install';
+            return prefix ? 'npm install' : 'install';
     }
 }
 
-export const findPackageManagerRuuner = (path = '.', defaultPackageManagerRunner = 'npx') => {
+export const findPackageManagerRunner = (path = '.', defaultPackageManagerRunner = 'npx') => {
     const bunPath = `${path}/bun.lockb`;
     const pnpmPath = `${path}/pnpm-lock.yaml`;
     const yarnPath = `${path}/yarn.lock`;
