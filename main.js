@@ -1,6 +1,6 @@
 import { existsSync } from 'fs';
 
-export const findPackageManagerType = (path = '.') => {
+export const findPackageManagerType = (path = '.', defaultPackageManager = 'unknown') => {
     const bunPath = `${path}/bun.lockb`;
     const pnpmPath = `${path}/pnpm-lock.yaml`;
     const yarnPath = `${path}/yarn.lock`;
@@ -17,7 +17,7 @@ export const findPackageManagerType = (path = '.') => {
     if (existsSync(npmPath)) {
         return 'npm'
     }
-    return 'unknown'
+    return defaultPm
 }
 
 export const findInstallCommand = (packageManagerType = findPackageManagerType()) => {
