@@ -17,7 +17,7 @@ export const findPackageManagerType = (path = '.', defaultPackageManager = 'unkn
     if (existsSync(npmPath)) {
         return 'npm'
     }
-    return defaultPm
+    return defaultPackageManager
 }
 
 export const findInstallCommand = (packageManagerType = findPackageManagerType(), prefix = false) => {
