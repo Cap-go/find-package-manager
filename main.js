@@ -1,20 +1,31 @@
 import { existsSync } from 'fs';
 
 export const findPackageManagerType = (path = '.', defaultPackageManager = 'unknown') => {
-    const bunPath = `${path}/bun.lockb`;
+    // Bun lock files (binary and text)
+    const bunBinaryPath = `${path}/bun.lockb`;
+    const bunTextPath = `${path}/bun.lock`;
+    
+    // pnpm lock files (current and legacy)
     const pnpmPath = `${path}/pnpm-lock.yaml`;
+    const pnpmLegacyPath = `${path}/shrinkwrap.yaml`;
+    
+    // Yarn lock file
     const yarnPath = `${path}/yarn.lock`;
+    
+    // npm lock files (standard and shrinkwrap)
     const npmPath = `${path}/package-lock.json`;
-    if (existsSync(bunPath)) {
+    const npmShrinkwrapPath = `${path}/npm-shrinkwrap.json`;
+    
+    if (existsSync(bunBinaryPath) || existsSync(bunTextPath)) {
         return 'bun'
     }
-    if (existsSync(pnpmPath)) {
+    if (existsSync(pnpmPath) || existsSync(pnpmLegacyPath)) {
         return 'pnpm'
     }
     if (existsSync(yarnPath)) {
         return 'yarn'
     }
-    if (existsSync(npmPath)) {
+    if (existsSync(npmPath) || existsSync(npmShrinkwrapPath)) {
         return 'npm'
     }
     return defaultPackageManager
@@ -38,20 +49,31 @@ export const findInstallCommand = (packageManagerType = findPackageManagerType()
 }
 
 export const findPackageManagerRunner = (path = '.', defaultPackageManagerRunner = 'npx') => {
-    const bunPath = `${path}/bun.lockb`;
+    // Bun lock files (binary and text)
+    const bunBinaryPath = `${path}/bun.lockb`;
+    const bunTextPath = `${path}/bun.lock`;
+    
+    // pnpm lock files (current and legacy)
     const pnpmPath = `${path}/pnpm-lock.yaml`;
+    const pnpmLegacyPath = `${path}/shrinkwrap.yaml`;
+    
+    // Yarn lock file
     const yarnPath = `${path}/yarn.lock`;
+    
+    // npm lock files (standard and shrinkwrap)
     const npmPath = `${path}/package-lock.json`;
-    if (existsSync(bunPath)) {
+    const npmShrinkwrapPath = `${path}/npm-shrinkwrap.json`;
+    
+    if (existsSync(bunBinaryPath) || existsSync(bunTextPath)) {
         return 'bunx'
     }
-    if (existsSync(pnpmPath)) {
+    if (existsSync(pnpmPath) || existsSync(pnpmLegacyPath)) {
         return 'pnpm exec'
     }
     if (existsSync(yarnPath)) {
         return 'yarn dlx'
     }
-    if (existsSync(npmPath)) {
+    if (existsSync(npmPath) || existsSync(npmShrinkwrapPath)) {
         return 'npx'
     }
     return defaultPackageManagerRunner

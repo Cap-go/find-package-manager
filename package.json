@@ -2,7 +2,7 @@
   "name": "@capgo/find-package-manager",
   "type": "module",
   "public": true,
-  "version": "0.0.17",
+  "version": "0.0.18",
   "license": "MIT",
   "description": "Find the package manager of a project",
   "main": "main.js",
